@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: tm-project-code
+  repo: python-ex1
+  url: https://github.com/tm-project-code/python-ex1.git
+  version: ""
+  versionURL: ""
