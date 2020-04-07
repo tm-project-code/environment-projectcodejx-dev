@@ -1,0 +1,10 @@
+adminUser:
+  password: local:projectcodejx/adminUser:password
+  username: admin
+enableDocker: false
+pipelineUser:
+  email: it-support@trendminer.com
+  token: local:projectcodejx/pipelineUser:token
+  username: team-church
+prow:
+  hmacToken: local:projectcodejx/prow:hmacToken
