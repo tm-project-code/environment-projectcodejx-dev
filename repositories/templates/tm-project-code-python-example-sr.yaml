@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: tm-project-code
+    provider: github
+    repository: python-example
+  name: tm-project-code-python-example
+spec:
+  description: Imported application for tm-project-code/python-example
+  httpCloneURL: https://github.com/tm-project-code/python-example.git
+  org: tm-project-code
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: python-example
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/tm-project-code/python-example.git
