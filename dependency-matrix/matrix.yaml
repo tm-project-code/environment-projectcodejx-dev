@@ -5,3 +5,9 @@ dependencies:
   url: https://github.com/tm-project-code/python-ex2.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: tm-project-code
+  repo: ex1
+  url: https://github.com/tm-project-code/ex1.git
+  version: ""
+  versionURL: ""
