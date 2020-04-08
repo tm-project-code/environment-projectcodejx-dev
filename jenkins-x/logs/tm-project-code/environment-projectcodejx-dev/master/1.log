@@ -1,0 +1,281 @@
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-6kc4h[0m
+{"level":"warn","ts":1586329277.246837,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1586329277.2472816,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-94mnm[0m
+{"level":"warn","ts":1586329278.2291327,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1586329278.231183,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-git-source-tm-project-code-environment-pro-8pb9p-mgrfv[0m
+{"level":"warn","ts":1586329290.3058288,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1586329291.4551325,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/tm-project-code/environment-projectcode**-dev.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:9cd8e3b90490a283ab8b8cc71186b475eb02cf67
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+** boot has only been validated on GKE and EKS, we'd love feedback and contributions for other Kubernetes providers
+Running in Batch Mode, execution will continue
+writing the following to the OWNERS file for the development environment repository:
+approvers:
+- vvanouytsel
+- sh33dafi
+- ***********
+reviewers:
+- vvanouytsel
+- sh33dafi
+- ***********
+WARNING: TLS is not enabled so your webhooks will be called using HTTP. This means your webhook secret will be sent to your cluster in the clear. See https://jenkins-x.io/docs/getting-started/setup/boot/#ingress for more information
+Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
+Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
+Verifying Ingress...
+Clearing the domain 51.138.40.152.nip.io as when using auto-DNS domains we need to regenerate to ensure its always accurate in case the cluster or ingress service is recreated
+
+Using namespace '**' from context named '' on server ''.
+
+Verifying the CLI packages using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+using version 2.0.1266 of **
+CLI packages kubectl, git, helm seem to be setup correctly
+NAME               VERSION
+**                 2.0.1266
+Kubernetes cluster v1.15.10
+kubectl            v1.16.0
+helm client        2.14.3
+git                2.21.1
+
+Verifying Storage...
+Storage configuration looks good
+
+Helm installed and configured
+Ensuring Helm chart repository https://storage.googleapis.com/chartmuseum.jenkins-x.io is configured
+Cluster looks good, you are ready to '** boot' now!
+
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
+Modified file /workspace/source/systems/velero/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-velero
+lock configmap **-lock-velero created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+cleaning the lock configmap **-lock-velero
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
+Modified file /workspace/source/systems/velero-backups/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-velero
+lock configmap **-lock-velero created
+Ignoring templates/default-backup.yaml
+No requirements file: /tmp/**-helm-apply-887462076/velero-backups/requirements.yaml so not checking for missing versions
+cleaning the lock configmap **-lock-velero
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
+Modified file /workspace/source/systems/**ing/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-kube-system
+lock configmap **-lock-kube-system created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+
+cleaning the lock configmap **-lock-kube-system
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+If you are installing Jenkins X on premise you may want to use the '--on-premise' flag or specify the '--external-ip' flags. See: https://jenkins-x.io/getting-started/install-on-cluster/#installing-jenkins-x-on-premise
+No domain flag provided so using default 51.138.40.152.nip.io to generate Ingress rules
+defaulting the domain to 51.138.40.152.nip.io and modified /workspace/source/**-requirements.yml
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-external-dns[0m
+Modified file /workspace/source/systems/external-dns/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+Adding missing Helm repo: charts.bitnami.com https://charts.bitnami.com/bitnami
+Successfully added Helm repository charts.bitnami.com.
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager-crds[0m
+customresourcedefinition.apiextensions.k8s.io/challenges.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/orders.acme.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/certificates.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/clusterissuers.cert-manager.io configured
+customresourcedefinition.apiextensions.k8s.io/issuers.cert-manager.io configured
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-cert-manager[0m
+Modified file /workspace/source/systems/cm/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-cert-manager
+lock configmap **-lock-cert-manager created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+Adding missing Helm repo: charts.jetstack.io https://charts.jetstack.io
+Successfully added Helm repository charts.jetstack.io.
+cleaning the lock configmap **-lock-cert-manager
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-acme-issuer-and-certificate[0m
+Modified file /workspace/source/systems/acme/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Ignoring templates/cert-manager-prod-certificate.yaml
+Ignoring templates/cert-manager-prod-issuer.yaml
+Ignoring templates/cert-manager-staging-certificate.yaml
+Ignoring templates/cert-manager-staging-issuer.yaml
+No requirements file: /tmp/**-helm-apply-779342266/acme/requirements.yaml so not checking for missing versions
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-vault[0m
+Not attempting to boot Vault as using secret storage: local
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-create-helm-values[0m
+defaulting to secret storage scheme local found from requirements file at /workspace/source/**-requirements.yml
+defaulting to secret base path to the cluster name projectcode** found from requirements file at /workspace/source/**-requirements.yml
+generated schema file /workspace/source/env/parameters.schema.json from template /workspace/source/env/parameters.tmpl.schema.json
+Jenkins X Admin Username ***** [Automatically accepted existing value]
+Jenkins X Admin Password *** [Automatically accepted existing value]
+Pipeline bot Git username *********** [Automatically accepted existing value]
+Pipeline bot Git email address it-support@trendminer.com [Automatically accepted existing value]
+Pipeline bot Git token *** [Automatically accepted existing value]
+HMAC token, used to validate incoming webhooks. Press enter to use the generated token *** [Automatically accepted existing value]
+Do you want to configure an external Docker Registry? false [Automatically accepted existing value]
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-create-jx-auth-config[0m
+Saved the rendered configuration into templates/**-auth-configmap.yaml file
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-jx-auth-config[0m
+Modified file /workspace/source/systems/**-auth/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Ignoring templates/**-auth-configmap.yaml
+No requirements file: /tmp/**-helm-apply-705336666/**-auth/requirements.yaml so not checking for missing versions
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-jenkins-x[0m
+Modified file /workspace/source/env/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Ignoring templates/.gitignore
+Applying the kubernetes overrides at ../kubeProviders/kubernetes/values.tmpl.yaml
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/jenkins-x/jenkins-x-versions.git and git ref: v1.0.412
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-verify-jenkins-x-environment[0m
+Storing the requirements in team settings in the dev environment
+Validating git repository for dev environment at URL https://github.com/tm-project-code/environment-projectcode**-dev.git
+Validating git repository for production environment at URL https://github.com/tm-project-code/environment-projectcode**-production.git
+Using Git provider github at https://github.com
+? Using Git user name: ***********
+? Using organisation: tm-project-code
+Creating repository tm-project-code/environment-projectcode**-production
+Git repository tm-project-code/environment-projectcode**-production already exists
+Pushed Git repository to https://github.com/tm-project-code/environment-projectcode**-production
+
+Validating git repository for staging environment at URL https://github.com/tm-project-code/environment-projectcode**-staging.git
+Using Git provider github at https://github.com
+? Using Git user name: ***********
+? Using organisation: tm-project-code
+Creating repository tm-project-code/environment-projectcode**-staging
+Git repository tm-project-code/environment-projectcode**-staging already exists
+Pushed Git repository to https://github.com/tm-project-code/environment-projectcode**-staging
+
+Environment git repositories look good
+
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-repositories[0m
+Modified file /workspace/source/repositories/Chart.yaml to set the chart to version 1
+creating the lock configmap **-lock-**
+lock configmap **-lock-** created
+Ignoring templates/default-group.yaml
+Ignoring templates/tm-project-code-python-ex1-sr.yaml
+Ignoring templates/tm-project-code-python-ex2-sr.yaml
+No requirements file: /tmp/**-helm-apply-598777607/repositories/requirements.yaml so not checking for missing versions
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+
+cleaning the lock configmap **-lock-**
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-install-pipelines[0m
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-update-webhooks[0m
+DEBUG: Finding service url for hook in namespace **
+DEBUG: Couldn't find service url, attempting to look up via ingress
+DEBUG: found service url http://hook-**.51.138.40.152.nip.io
+Updating webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-dev in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-akspocpipeline**-dev with user ***********
+WARNING: Querying webhooks on tm-project-code/environment-akspocpipeline**-dev: GET https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-dev/hooks: 404 Not Found []
+Creating GitHub webhook for tm-project-code/environment-akspocpipeline**-dev for url http://hook-**.51.138.40.152.nip.io/hook
+WARNING: failed to update webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-dev in git server: https://github.com: creating the webhook "http://hook-**.51.138.40.152.nip.io/hook" on repository 'tm-project-code/environment-akspocpipeline**-dev': unable to create webhook for tm-project-code/environment-akspocpipeline**-dev - permission denied: POST https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-dev/hooks: 404 Not Found []
+Updating webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-production in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-akspocpipeline**-production with user ***********
+WARNING: Querying webhooks on tm-project-code/environment-akspocpipeline**-production: GET https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-production/hooks: 404 Not Found []
+Creating GitHub webhook for tm-project-code/environment-akspocpipeline**-production for url http://hook-**.51.138.40.152.nip.io/hook
+WARNING: failed to update webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-production in git server: https://github.com: creating the webhook "http://hook-**.51.138.40.152.nip.io/hook" on repository 'tm-project-code/environment-akspocpipeline**-production': unable to create webhook for tm-project-code/environment-akspocpipeline**-production - permission denied: POST https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-production/hooks: 404 Not Found []
+Updating webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-staging in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-akspocpipeline**-staging with user ***********
+WARNING: Querying webhooks on tm-project-code/environment-akspocpipeline**-staging: GET https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-staging/hooks: 404 Not Found []
+Creating GitHub webhook for tm-project-code/environment-akspocpipeline**-staging for url http://hook-**.51.138.40.152.nip.io/hook
+WARNING: failed to update webhooks for Owner: tm-project-code and Repository: environment-akspocpipeline**-staging in git server: https://github.com: creating the webhook "http://hook-**.51.138.40.152.nip.io/hook" on repository 'tm-project-code/environment-akspocpipeline**-staging': unable to create webhook for tm-project-code/environment-akspocpipeline**-staging - permission denied: POST https://api.github.com/repos/tm-project-code/environment-akspocpipeline**-staging/hooks: 404 Not Found []
+Updating webhooks for Owner: tm-project-code and Repository: environment-projectcode**-dev in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-projectcode**-dev with user ***********
+Found matching hook for url http://hook-**.51.138.40.152.nip.io/hook
+Updating GitHub webhook for tm-project-code/environment-projectcode**-dev for url http://hook-**.51.138.40.152.nip.io/hook
+Updating webhooks for Owner: tm-project-code and Repository: environment-projectcode**-production in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-projectcode**-production with user ***********
+Found matching hook for url http://hook-**.51.138.40.152.nip.io/hook
+Updating GitHub webhook for tm-project-code/environment-projectcode**-production for url http://hook-**.51.138.40.152.nip.io/hook
+Updating webhooks for Owner: tm-project-code and Repository: environment-projectcode**-staging in git server: https://github.com
+Checking hooks for repository tm-project-code/environment-projectcode**-staging with user ***********
+Found matching hook for url http://hook-**.51.138.40.152.nip.io/hook
+Updating GitHub webhook for tm-project-code/environment-projectcode**-staging for url http://hook-**.51.138.40.152.nip.io/hook
+Updating webhooks for Owner: tm-project-code and Repository: python-ex1 in git server: https://github.com
+Checking hooks for repository tm-project-code/python-ex1 with user ***********
+WARNING: Querying webhooks on tm-project-code/python-ex1: GET https://api.github.com/repos/tm-project-code/python-ex1/hooks: 404 Not Found []
+Creating GitHub webhook for tm-project-code/python-ex1 for url http://hook-**.51.138.40.152.nip.io/hook
+WARNING: failed to update webhooks for Owner: tm-project-code and Repository: python-ex1 in git server: https://github.com: creating the webhook "http://hook-**.51.138.40.152.nip.io/hook" on repository 'tm-project-code/python-ex1': unable to create webhook for tm-project-code/python-ex1 - permission denied: POST https://api.github.com/repos/tm-project-code/python-ex1/hooks: 404 Not Found []
+Updating webhooks for Owner: tm-project-code and Repository: python-ex2 in git server: https://github.com
+Checking hooks for repository tm-project-code/python-ex2 with user ***********
+Found matching hook for url http://hook-**.51.138.40.152.nip.io/hook
+Updating GitHub webhook for tm-project-code/python-ex2 for url http://hook-**.51.138.40.152.nip.io/hook
+
+Showing logs for build [32mtm-project-code-environment-pro-8pb9p-1[0m stage [32mrelease[0m and container [32mstep-verify-installation[0m
+verifying the Jenkins X installation in namespace **
+verifying pods
+Checking pod statuses
+POD                                          STATUS
+aks-ssh                                      Running
+crier-76bb69cdcc-rr6rr                       Running
+deck-6d894bd6c-9gdx5                         Running
+deck-6d894bd6c-d4dkj                         Running
+hook-68777d88c7-59fhf                        Running
+hook-68777d88c7-qq9k6                        Running
+horologium-7ffb6d7cfd-mq7sw                  Running
+jenkins-6bc84f78b8-vx8x6                     Running
+jenkins-x-chartmuseum-5459d54d46-mk7b8       Running
+jenkins-x-controllerbuild-765769576d-scb92   Running
+jenkins-x-controllerrole-866c46bdbd-zvddq    Running
+jenkins-x-docker-registry-59547474fb-lhmgs   Running
+jenkins-x-gcactivities-1586327400-5r74c      Succeeded
+jenkins-x-gcactivities-1586329200-l7j9k      Succeeded
+jenkins-x-gcpods-1586327400-fpmwr            Succeeded
+jenkins-x-gcpods-1586329200-xpmjt            Succeeded
+jenkins-x-heapster-886b58f69-w6phz           Running
+jenkins-x-nexus-c7c5477ff-gpdp2              Running
+pipeline-599c968cc5-54zp6                    Running
+pipelinerunner-7c4c5db99f-thdff              Running
+tekton-pipelines-controller-569d5f977d-9xfdv Running
+tide-5f6df69548-5tcqk                        Running
+Verifying the git config
+Verifying username *********** at git server github at https://github.com
+Found 1 organisations in git server https://github.com: tm-project-code
+Verifying username *********** at git server github.com at https://github.com
+Found 1 organisations in git server https://github.com: tm-project-code
+Validated pipeline user *********** on git server https://github.com
+Git tokens seem to be setup correctly
+Installation is currently looking: GOOD
