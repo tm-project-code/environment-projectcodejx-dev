@@ -11,3 +11,9 @@ dependencies:
   url: https://github.com/tm-project-code/ex1.git
   version: ""
   versionURL: ""
+- host: github.com
+  owner: tm-project-code
+  repo: python-example
+  url: https://github.com/tm-project-code/python-example.git
+  version: ""
+  versionURL: ""
