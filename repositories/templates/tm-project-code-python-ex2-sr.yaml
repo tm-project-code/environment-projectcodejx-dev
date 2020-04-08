@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: tm-project-code
+    provider: github
+    repository: python-ex2
+  name: tm-project-code-python-ex2
+spec:
+  description: Imported application for tm-project-code/python-ex2
+  httpCloneURL: https://github.com/tm-project-code/python-ex2.git
+  org: tm-project-code
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: python-ex2
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/tm-project-code/python-ex2.git
